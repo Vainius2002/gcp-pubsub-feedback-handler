@@ -34,3 +34,23 @@ The goal of this project is to showcase practical experience with:
   "message": "Very well made. I give it a 10!",
   "timestamp": "2025-07-23T17:12:00Z"
 }
+
+## ✅ Features
+    1. Reconnects to PostgreSQL per message (to simulate stateless design).
+    2. Converts and validates ISO timestamps.
+    3. Handles and logs insertion errors.
+    4. (Optional extension) Can be connected to BigQuery for analytics and dashboarding.
+
+🛠️ Setup Instructions
+1. Enable required GCP services
+   1) Pub/Sub
+   2) Cloud SQL (PostgreSQL)
+   3) IAM & Admin for role assignment
+
+2. Install Python dependencies
+   pip install google-cloud-pubsub psycopg2
+
+3. Set up authentication (Export your service account key):
+   export GOOGLE_APPLICATION_CREDENTIALS="path/to/your/service-account-key.json"
+   
+4. Run the subscriber script
