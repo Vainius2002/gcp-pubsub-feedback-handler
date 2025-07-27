@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Feedback Matters</title>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" placeholder="Enter Your Name *Required*" name="users_name">
+        <input type="text" placeholder="Enter your feedback" name="users_feedback">
+        <button type="submit" onclick="send_form(event)">Save Info</button>
+    </form>
+        <p id="alert"></p>
+</body>
+<script>
+    const html_form = document.getElementById("myForm");
+
+    function send_form(event) {
+        event.preventDefault()
+        const new_form = new FormData(html_form);
+
+        fetch('/submit_form', {
+            method: "POST",
+            body: new_form
+        });
+
+        document.getElementById("alert").innerHTML = "Sent successfully!"
+    }
+</script>
+<style>
+    #myForm {
+        display: flex;
+        flex-direction: column;
+    }
+    #alert {
+        color:red;
+    }
+    body {
+        background-color: rgb(170, 193, 255);
+    }
+</style>
+</html>
